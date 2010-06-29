@@ -14,7 +14,7 @@ use Nette\Reflection\AnnotationsParser,
 
 
 
-require __DIR__ . '/../NetteTest/initialize.php';
+require __DIR__ . '/../initialize.php';
 
 require __DIR__ . '/files/annotations.php';
 
@@ -22,41 +22,41 @@ require __DIR__ . '/files/annotations.php';
 
 // temporary directory
 define('TEMP_DIR', __DIR__ . '/tmp');
-NetteTestHelpers::purge(TEMP_DIR);
+T::purge(TEMP_DIR);
 Environment::setVariable('tempDir', TEMP_DIR);
 
 
 AnnotationsParser::$useReflection = FALSE;
 
 
-output('AnnotatedClass1');
+T::note('AnnotatedClass1');
 
 $rc = new ReflectionClass('Nette\AnnotatedClass1');
-dump( AnnotationsParser::getAll($rc) );
-dump( AnnotationsParser::getAll($rc->getProperty('a')), '$a' );
-dump( AnnotationsParser::getAll($rc->getProperty('b')), '$b' );
-dump( AnnotationsParser::getAll($rc->getProperty('c')), '$c' );
-dump( AnnotationsParser::getAll($rc->getProperty('d')), '$d' );
-dump( AnnotationsParser::getAll($rc->getProperty('e')), '$e' );
-dump( AnnotationsParser::getAll($rc->getProperty('f')), '$f' );
-//dump( AnnotationsParser::getAll($rc->getProperty('g')), '$g' ); // ignore due PHP bug #50174
-dump( AnnotationsParser::getAll($rc->getMethod('a')), 'a()' );
-dump( AnnotationsParser::getAll($rc->getMethod('b')), 'b()' );
-dump( AnnotationsParser::getAll($rc->getMethod('c')), 'c()' );
-dump( AnnotationsParser::getAll($rc->getMethod('d')), 'd()' );
-dump( AnnotationsParser::getAll($rc->getMethod('e')), 'e()' );
-dump( AnnotationsParser::getAll($rc->getMethod('f')), 'f()' );
-dump( AnnotationsParser::getAll($rc->getMethod('g')), 'g()' );
+T::dump( AnnotationsParser::getAll($rc) );
+T::dump( AnnotationsParser::getAll($rc->getProperty('a')), '$a' );
+T::dump( AnnotationsParser::getAll($rc->getProperty('b')), '$b' );
+T::dump( AnnotationsParser::getAll($rc->getProperty('c')), '$c' );
+T::dump( AnnotationsParser::getAll($rc->getProperty('d')), '$d' );
+T::dump( AnnotationsParser::getAll($rc->getProperty('e')), '$e' );
+T::dump( AnnotationsParser::getAll($rc->getProperty('f')), '$f' );
+//T::dump( AnnotationsParser::getAll($rc->getProperty('g')), '$g' ); // ignore due PHP bug #50174
+T::dump( AnnotationsParser::getAll($rc->getMethod('a')), 'a()' );
+T::dump( AnnotationsParser::getAll($rc->getMethod('b')), 'b()' );
+T::dump( AnnotationsParser::getAll($rc->getMethod('c')), 'c()' );
+T::dump( AnnotationsParser::getAll($rc->getMethod('d')), 'd()' );
+T::dump( AnnotationsParser::getAll($rc->getMethod('e')), 'e()' );
+T::dump( AnnotationsParser::getAll($rc->getMethod('f')), 'f()' );
+T::dump( AnnotationsParser::getAll($rc->getMethod('g')), 'g()' );
 
-output('AnnotatedClass2');
+T::note('AnnotatedClass2');
 
 $rc = new ReflectionClass('Nette\AnnotatedClass2');
-dump( AnnotationsParser::getAll($rc) );
+T::dump( AnnotationsParser::getAll($rc) );
 
-output('AnnotatedClass3');
+T::note('AnnotatedClass3');
 
 $rc = new ReflectionClass('Nette\AnnotatedClass3');
-dump( AnnotationsParser::getAll($rc) );
+T::dump( AnnotationsParser::getAll($rc) );
 
 
 
@@ -65,90 +65,90 @@ __halt_compiler() ?>
 ------EXPECT------
 AnnotatedClass1
 
-array(1) {
-	"author" => array(1) {
-		0 => string(4) "john"
-	}
-}
+array(
+	"author" => array(
+		"john"
+	)
+)
 
-$a: array(1) {
-	"var" => array(1) {
-		0 => string(1) "a"
-	}
-}
+$a: array(
+	"var" => array(
+		"a"
+	)
+)
 
-$b: array(1) {
-	"var" => array(1) {
-		0 => string(1) "b"
-	}
-}
+$b: array(
+	"var" => array(
+		"b"
+	)
+)
 
-$c: array(1) {
-	"var" => array(1) {
-		0 => string(1) "c"
-	}
-}
+$c: array(
+	"var" => array(
+		"c"
+	)
+)
 
-$d: array(1) {
-	"var" => array(1) {
-		0 => string(1) "d"
-	}
-}
+$d: array(
+	"var" => array(
+		"d"
+	)
+)
 
-$e: array(1) {
-	"var" => array(1) {
-		0 => string(1) "e"
-	}
-}
+$e: array(
+	"var" => array(
+		"e"
+	)
+)
 
-$f: array(0)
+$f: array()
 
-a(): array(1) {
-	"return" => array(1) {
-		0 => string(1) "a"
-	}
-}
+a(): array(
+	"return" => array(
+		"a"
+	)
+)
 
-b(): array(1) {
-	"return" => array(1) {
-		0 => string(1) "b"
-	}
-}
+b(): array(
+	"return" => array(
+		"b"
+	)
+)
 
-c(): array(1) {
-	"return" => array(1) {
-		0 => string(1) "c"
-	}
-}
+c(): array(
+	"return" => array(
+		"c"
+	)
+)
 
-d(): array(1) {
-	"return" => array(1) {
-		0 => string(1) "d"
-	}
-}
+d(): array(
+	"return" => array(
+		"d"
+	)
+)
 
-e(): array(1) {
-	"return" => array(1) {
-		0 => string(1) "e"
-	}
-}
+e(): array(
+	"return" => array(
+		"e"
+	)
+)
 
-f(): array(0)
+f(): array()
 
-g(): array(1) {
-	"return" => array(1) {
-		0 => string(1) "g"
-	}
-}
+g(): array(
+	"return" => array(
+		"g"
+	)
+)
 
 AnnotatedClass2
 
-array(1) {
-	"author" => array(1) {
-		0 => string(4) "jack"
-	}
-}
+array(
+	"author" => array(
+		"jack"
+	)
+)
 
 AnnotatedClass3
 
-array(0)
+array()

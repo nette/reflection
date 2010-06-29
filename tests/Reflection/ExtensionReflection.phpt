@@ -13,59 +13,59 @@ use Nette\Reflection\ExtensionReflection;
 
 
 
-require __DIR__ . '/../NetteTest/initialize.php';
+require __DIR__ . '/../initialize.php';
 
 
 
 $ext = new ExtensionReflection("standard");
 $funcs = $ext->getFunctions();
-dump( $funcs['sleep'] );
+T::dump( $funcs['sleep'] );
 
 
 $ext = new ExtensionReflection('reflection');
-dump( $ext->getClasses() );
+T::dump( $ext->getClasses() );
 
 
 
 __halt_compiler() ?>
 
 ------EXPECT------
-object(%ns%FunctionReflection) (1) {
-	"name" => string(5) "sleep"
-}
+%ns%FunctionReflection(
+	"name" => "sleep"
+)
 
-array(11) {
-	"ReflectionException" => object(%ns%ClassReflection) (1) {
-		"name" => string(19) "ReflectionException"
-	}
-	"Reflection" => object(%ns%ClassReflection) (1) {
-		"name" => string(10) "Reflection"
-	}
-	"Reflector" => object(%ns%ClassReflection) (1) {
-		"name" => string(9) "Reflector"
-	}
-	"ReflectionFunctionAbstract" => object(%ns%ClassReflection) (1) {
-		"name" => string(26) "ReflectionFunctionAbstract"
-	}
-	"ReflectionFunction" => object(%ns%ClassReflection) (1) {
-		"name" => string(18) "ReflectionFunction"
-	}
-	"ReflectionParameter" => object(%ns%ClassReflection) (1) {
-		"name" => string(19) "ReflectionParameter"
-	}
-	"ReflectionMethod" => object(%ns%ClassReflection) (1) {
-		"name" => string(16) "ReflectionMethod"
-	}
-	"ReflectionClass" => object(%ns%ClassReflection) (1) {
-		"name" => string(15) "ReflectionClass"
-	}
-	"ReflectionObject" => object(%ns%ClassReflection) (1) {
-		"name" => string(16) "ReflectionObject"
-	}
-	"ReflectionProperty" => object(%ns%ClassReflection) (1) {
-		"name" => string(18) "ReflectionProperty"
-	}
-	"ReflectionExtension" => object(%ns%ClassReflection) (1) {
-		"name" => string(19) "ReflectionExtension"
-	}
-}
+array(
+	"ReflectionException" => %ns%ClassReflection(
+		"name" => "ReflectionException"
+	)
+	"Reflection" => %ns%ClassReflection(
+		"name" => "Reflection"
+	)
+	"Reflector" => %ns%ClassReflection(
+		"name" => "Reflector"
+	)
+	"ReflectionFunctionAbstract" => %ns%ClassReflection(
+		"name" => "ReflectionFunctionAbstract"
+	)
+	"ReflectionFunction" => %ns%ClassReflection(
+		"name" => "ReflectionFunction"
+	)
+	"ReflectionParameter" => %ns%ClassReflection(
+		"name" => "ReflectionParameter"
+	)
+	"ReflectionMethod" => %ns%ClassReflection(
+		"name" => "ReflectionMethod"
+	)
+	"ReflectionClass" => %ns%ClassReflection(
+		"name" => "ReflectionClass"
+	)
+	"ReflectionObject" => %ns%ClassReflection(
+		"name" => "ReflectionObject"
+	)
+	"ReflectionProperty" => %ns%ClassReflection(
+		"name" => "ReflectionProperty"
+	)
+	"ReflectionExtension" => %ns%ClassReflection(
+		"name" => "ReflectionExtension"
+	)
+)
