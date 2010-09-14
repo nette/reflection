@@ -13,7 +13,7 @@ use Nette\Reflection\AnnotationsParser,
 
 
 
-require __DIR__ . '/../initialize.php';
+require __DIR__ . '/../bootstrap.php';
 
 require __DIR__ . '/files/annotations.php';
 
@@ -22,7 +22,6 @@ require __DIR__ . '/files/annotations.php';
 // temporary directory
 define('TEMP_DIR', __DIR__ . '/tmp');
 TestHelpers::purge(TEMP_DIR);
-Environment::setVariable('tempDir', TEMP_DIR);
 
 
 AnnotationsParser::$useReflection = FALSE;
