@@ -1,11 +1,12 @@
 <?php
 
 /**
- * Test: Annotations file parser.
+ * Test: Nette\Reflection\AnnotationsParser file parser.
  *
  * @author     David Grudl
  * @package    Nette\Reflection
  * @subpackage UnitTests
+ * @phpversion 5.3
  */
 
 use Nette\Reflection\AnnotationsParser;
@@ -16,9 +17,6 @@ require __DIR__ . '/../bootstrap.php';
 
 require __DIR__ . '/files/annotations.php';
 
-
-
-TestHelpers::purge(TEMP_DIR);
 
 
 AnnotationsParser::$useReflection = FALSE;
