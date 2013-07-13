@@ -119,8 +119,8 @@ final class AnnotationsParser
 		}
 
 		if ($r instanceof \ReflectionMethod && !$r->isPrivate()
-			&& (!$r->isConstructor() || !empty($annotations['inheritdoc'][0])))
-		{
+			&& (!$r->isConstructor() || !empty($annotations['inheritdoc'][0]))
+		) {
 			try {
 				$inherited = self::getAll(new \ReflectionMethod(get_parent_class($type), $member));
 			} catch (\ReflectionException $e) {
@@ -247,6 +247,7 @@ final class AnnotationsParser
 				switch ($token[0]) {
 					case T_DOC_COMMENT:
 						$docComment = $token[1];
+						// break intentionally omitted
 					case T_WHITESPACE:
 					case T_COMMENT:
 						continue 2;
