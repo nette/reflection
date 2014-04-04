@@ -42,6 +42,9 @@ class AnnotationsParser
 
 	/** @var Nette\Caching\IStorage */
 	private static $cacheStorage;
+	
+	/** @var array */
+	private static $classExistsCache = array();
 
 
 	/**
@@ -253,7 +256,8 @@ class AnnotationsParser
 			}
 
 			$class = $name . 'Annotation';
-			if (class_exists($class)) {
+			if (isset(self::$classExistsCache[$class]) && self::$classExistsCache[$class] === TRUE
+				|| self::$classExistsCache[$class] = class_exists($class)) {
 				$res[$name][] = new $class(is_array($value) ? $value : array('value' => $value));
 
 			} else {
