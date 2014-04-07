@@ -252,13 +252,7 @@ class AnnotationsParser
 				}
 			}
 
-			$class = $name . 'Annotation';
-			if (class_exists($class)) {
-				$res[$name][] = new $class(is_array($value) ? $value : array('value' => $value));
-
-			} else {
-				$res[$name][] = is_array($value) ? Nette\Utils\ArrayHash::from($value) : $value;
-			}
+			$res[$name][] = is_array($value) ? Nette\Utils\ArrayHash::from($value) : $value;
 		}
 
 		return $res;
