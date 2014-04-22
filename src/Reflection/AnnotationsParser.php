@@ -63,18 +63,25 @@ class AnnotationsParser
 		if ($r instanceof \ReflectionClass) {
 			$type = $r->getName();
 			$member = 'class';
+			$file = $r->getFileName();
 
 		} elseif ($r instanceof \ReflectionMethod) {
 			$type = $r->getDeclaringClass()->getName();
 			$member = $r->getName();
+			$file = $r->getFileName();
+
+		} elseif ($r instanceof \ReflectionFunction) {
+			$type = NULL;
+			$member = $r->getName();
+			$file = $r->getFileName();
 
 		} else {
 			$type = $r->getDeclaringClass()->getName();
 			$member = '$' . $r->getName();
+			$file = $r->getDeclaringClass()->getFileName();
 		}
 
 		if (!self::$useReflection) { // auto-expire cache
-			$file = $r instanceof \ReflectionClass ? $r->getFileName() : $r->getDeclaringClass()->getFileName(); // will be used later
 			if ($file && isset(self::$timestamps[$file]) && self::$timestamps[$file] !== filemtime($file)) {
 				unset(self::$cache[$type]);
 			}
