@@ -15,6 +15,7 @@
 	],
 	"require": {
 		"php": ">=5.3.1",
+		"ext-tokenizer": "*",
 		"nette/caching": "~2.2",
 		"nette/utils": "~2.2"
 	},
