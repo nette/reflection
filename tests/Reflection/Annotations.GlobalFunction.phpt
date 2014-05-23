@@ -2,8 +2,6 @@
 
 /**
  * Test: Nette\Reflection\Annotations.GlobalFunction tests.
- *
- * @author     Martin Takáč
  */
 
 use Nette\Reflection,
@@ -20,7 +18,7 @@ function foo($a, $b) {
 
 /**
  * Lorem ipsum.
- * 
+ *
  * @param int
  * @param int
  * @return int
@@ -36,9 +34,7 @@ function boo($a, $b) {
  */
 test(function() {
 	$function = new Reflection\GlobalFunction('sort');
-
-	$ans = $function->getAnnotations();
-	Assert::same(array(),  $ans);
+	Assert::same(array(),  $function->getAnnotations());
 	Assert::null($function->getDescription());
 });
 
@@ -51,12 +47,6 @@ test(function() {
 	$function = new Reflection\GlobalFunction('foo');
 	$ans = $function->getAnnotations();
 	Assert::same(array("Test: Nette\Reflection\Annotations.GlobalFunction tests."), $ans['description']);
-	Assert::same(array("Martin Takáč"), $ans['author']);
-	Assert::same(array(
-			'description' => array('Test: Nette\Reflection\Annotations.GlobalFunction tests.'),
-			'author' => array('Martin Takáč'),
-			),
-			$ans);
 });
 
 
@@ -66,13 +56,13 @@ test(function() {
  */
 test(function() {
 	$function = new Reflection\GlobalFunction('boo');
-	$ans = $function->getAnnotations();
 	Assert::same(array(
 			'description' => array('Lorem ipsum.'),
 			'param' => array('int', 'int'),
 			'return' => array('int'),
-			),
-			$ans);
+		),
+		$function->getAnnotations()
+	);
 	Assert::same('Lorem ipsum.', $function->getDescription());
 	Assert::true($function->hasAnnotation('param'));
 	Assert::false($function->hasAnnotation('author'));
