@@ -155,9 +155,11 @@ class AnnotationsParser
 	{
 		if (empty($name)) {
 			throw new Nette\InvalidArgumentException('Class name must not be empty.');
-		}
 
-		if ($name[0] === '\\') { // already fully qualified
+		} elseif ($name === 'self') {
+			return $reflector->getName();
+
+		} elseif ($name[0] === '\\') { // already fully qualified
 			return ltrim($name, '\\');
 		}
 
