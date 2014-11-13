@@ -26,6 +26,8 @@ Assert::exception( function() use ($rcTest) {
 Assert::same( 'A', AnnotationsParser::expandClassName('A', $rcTest) );
 Assert::same( 'A\B', AnnotationsParser::expandClassName('C', $rcTest) );
 
+Assert::same( 'Test\Space\Foo', AnnotationsParser::expandClassName('self', $rcFoo) );
+
 
 /*
 alias to expand => array(
