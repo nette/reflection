@@ -18,26 +18,11 @@ class Helpers
 	/**
 	 * Unlike the PHP's getDeclaringClass method, this can return a trait reflection.
 	 * Results from this method should be cached.
-	 * @param \ReflectionProperty|\ReflectionMethod
 	 * @return Nette\Reflection\ClassType
 	 */
-	public static function getDeclaringClass(\Reflector $reflection)
+	public static function getDeclaringClass(\ReflectionProperty $reflection)
 	{	
-		$class = $reflection->getDeclaringClass();
-
-		if ($reflection instanceof \ReflectionProperty) {
-			$trait = self::searchTraitsForProperty($class, $reflection->getName());
-
-		} else {
-			$methodFile = $reflection->getFileName();
-			$methodStartLine = $reflection->getStartLine();
-			$methodEndLine = $reflection->getEndLine();
-			$trait = self::searchTraitsForMethod($class, $methodFile, $methodStartLine, $methodEndLine);
-		}
-
-		if ($trait !== NULL) {
-			$class = $trait;
-		}
+		$class = self::searchTraitsForProperty($reflection->getDeclaringClass(), $reflection->getName());
 
 		return new ClassType($class->getName());
 	}
@@ -49,31 +34,13 @@ class Helpers
 	private static function searchTraitsForProperty(\ReflectionClass $class, $name)
 	{
 		foreach ($class->getTraits() as $trait) {
-			$result = self::searchTraitsForProperty($trait, $name);
-			if ($result !== NULL) {
+			if ($result = self::searchTraitsForProperty($trait, $name)) {
 				return $result;
-
-			} elseif ($trait->hasProperty($name)) {
-				return $trait;
 			}
 		}
-	}
 
-
-	/**
-	 * Recursive method called to find a method in traits.
-	 */
-	private static function searchTraitsForMethod(\ReflectionClass $class, $methodFile, $methodStartLine, $methodEndLine)
-	{
-		foreach ($class->getTraits() as $trait) {
-			if ($trait->getFileName() === $methodFile && $trait->getStartLine() <= $methodStartLine && $trait->getEndLine() >= $methodEndLine) {
-				return $trait;
-			}
-
-			$result = self::searchTraitsForMethod($trait, $methodFile, $methodStartLine, $methodEndLine);
-			if ($result !== NULL) {
-				return $result;
-			}
+		if ($class->hasProperty($name)) {
+			return $class;
 		}
 	}
 
