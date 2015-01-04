@@ -25,9 +25,16 @@ trait B
 	protected function foo() {}
 }
 
+trait E
+{
+	protected $baz;
+	protected function baz() {} 
+}
+
 class C
 {
 	use B;
+	use E;
 	protected $own;
 	protected function own() {}
 	protected function override() {}
@@ -50,6 +57,10 @@ test(function() { // Property in class itself
 	Assert::same('C', Reflection\Helpers::getDeclaringClass(new \ReflectionProperty('D', 'own'))->getName());
 });
 
+test(function() { // Property in second trait
+	Assert::same('E', Reflection\Helpers::getDeclaringClass(new \ReflectionProperty('D', 'baz'))->getName());
+});
+
 test(function() { // Method in trait
 	Assert::same('B', Reflection\Helpers::getDeclaringClass(new \ReflectionMethod('D', 'foo'))->getName());
 });
@@ -60,6 +71,10 @@ test(function() { // Method in parent trait
 
 test(function() { // Method in class itself
 	Assert::same('C', Reflection\Helpers::getDeclaringClass(new \ReflectionMethod('D', 'own'))->getName());
+});
+
+test(function() { // Method in second trait
+	Assert::same('E', Reflection\Helpers::getDeclaringClass(new \ReflectionMethod('D', 'baz'))->getName());
 });
 
 test(function() { // Method in trait overridden by class
