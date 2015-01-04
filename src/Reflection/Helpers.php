@@ -18,16 +18,11 @@ class Helpers
 	/**
 	 * Unlike the PHP's getDeclaringClass method, this can return a trait reflection.
 	 * Results from this method should be cached.
-	 * @param \ReflectionProperty|\ReflectionMethod	 
+	 * @param \ReflectionProperty|\ReflectionMethod
 	 * @return Nette\Reflection\ClassType
-	 * @throws Nette\InvalidArgumentException	 
 	 */
 	public static function getDeclaringClass(\Reflector $reflection)
-	{
-		if (!$reflection instanceof \ReflectionProperty && !$reflection instanceof \ReflectionMethod) {
-			throw new \Nette\InvalidArgumentException('Expected argument of type \ReflectionProperty or \ReflectionMethod, ' . get_class($reflection) . ' given.');
-		}
-	
+	{	
 		$class = $reflection->getDeclaringClass();
 
 		if ($reflection instanceof \ReflectionProperty) {
