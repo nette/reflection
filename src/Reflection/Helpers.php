@@ -21,16 +21,16 @@ class Helpers
 	 * @return \ReflectionClass
 	 * @internal
 	 */
-	public static function getDeclaringClass(\ReflectionProperty $prop)
+	public static function getDeclaringClass(\ReflectionProperty $property)
 	{
 		if (PHP_VERSION_ID >= 50400) {
-			foreach ($prop->getDeclaringClass()->getTraits() as $trait) {
-				if ($trait->hasProperty($prop->getName())) {
-					return self::getDeclaringClass($trait->getProperty($prop->getName()));
+			foreach ($property->getDeclaringClass()->getTraits() as $trait) {
+				if ($trait->hasProperty($property->getName())) {
+					return self::getDeclaringClass($trait->getProperty($property->getName()));
 				}
 			}
 		}
-		return $prop->getDeclaringClass();
+		return $property->getDeclaringClass();
 	}
 
 }
