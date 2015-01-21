@@ -46,7 +46,7 @@ test(function() {
 test(function() {
 	$function = new Reflection\GlobalFunction('foo');
 	$ans = $function->getAnnotations();
-	Assert::same(array("Test: Nette\Reflection\Annotations.GlobalFunction tests."), $ans['description']);
+	Assert::same(array('Test: Nette\Reflection\Annotations.GlobalFunction tests.'), $ans['description']);
 });
 
 
