@@ -19,12 +19,12 @@ test(function() {
 	$reflect = new Reflection\GlobalFunction('myFunction');
 	$params = $reflect->getParameters();
 	Assert::same( 2, count($params) );
-	Assert::same( 'myFunction()', (string) $params[0]->declaringFunction );
-	Assert::null( $params[0]->class );
-	Assert::null( $params[0]->declaringClass );
-	Assert::same( 'myFunction()', (string) $params[1]->declaringFunction );
-	Assert::null( $params[1]->class );
-	Assert::null( $params[1]->declaringClass );
+	Assert::same( 'myFunction()', (string) $params[0]->getDeclaringFunction() );
+	Assert::null( $params[0]->getClass() );
+	Assert::null( $params[0]->getDeclaringClass() );
+	Assert::same( 'myFunction()', (string) $params[1]->getDeclaringFunction() );
+	Assert::null( $params[1]->getClass() );
+	Assert::null( $params[1]->getDeclaringClass() );
 });
 
 
@@ -40,10 +40,10 @@ test(function() {
 	$reflect = new Reflection\ClassType('Foo');
 	$params = $reflect->getMethod('myMethod')->getParameters();
 	Assert::same( 2, count($params) );
-	Assert::same( 'Foo::myMethod()', (string) $params[0]->declaringFunction );
-	Assert::null( $params[0]->class );
-	Assert::same( 'Foo', (string) $params[0]->declaringClass );
-	Assert::same( 'Foo::myMethod()', (string) $params[1]->declaringFunction );
-	Assert::null( $params[1]->class );
-	Assert::same( 'Foo', (string) $params[1]->declaringClass );
+	Assert::same( 'Foo::myMethod()', (string) $params[0]->getDeclaringFunction() );
+	Assert::null( $params[0]->getClass() );
+	Assert::same( 'Foo', (string) $params[0]->getDeclaringClass() );
+	Assert::same( 'Foo::myMethod()', (string) $params[1]->getDeclaringFunction() );
+	Assert::null( $params[1]->getClass() );
+	Assert::same( 'Foo', (string) $params[1]->getDeclaringClass() );
 });
