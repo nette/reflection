@@ -11,11 +11,11 @@ use Nette\Reflection,
 require __DIR__ . '/../bootstrap.php';
 
 
-function check($method, $args)
+function check($name, $args)
 {
-	$method = new Reflection\Method($method);
+	$method = new Reflection\Method($name);
 	foreach ($method->getParameters() as $param) {
-		echo "{$method->getName()}(\${$param->getName()})\n";
+		echo "$name(\${$param->getName()})\n";
 		list($isOptional, $isDefaultValueAvailable, $defaultValue) = array_shift($args) + array(NULL, NULL, NULL);
 		Assert::same( $isOptional, $param->isOptional() );
 		Assert::same( $isDefaultValueAvailable, $param->isDefaultValueAvailable() );
@@ -40,7 +40,7 @@ class Test
 
 
 check( 'Test::func1', array(
-	/* $a */ array(FALSE, FALSE),
+	/* $a */ array(FALSE, FALSE), // isOptional | isDefaultValueAvailable | [ getDefaultValue ]
 	/* $b */ array(FALSE, FALSE),
 	/* $c */ array(FALSE, FALSE)
 ));
@@ -83,3 +83,19 @@ check( 'FilesystemIterator::__construct', array(
 	/* $path */ array(FALSE, FALSE),
 	/* $flags */ array(TRUE, FALSE),
 ));
+/*
+check( 'PDO::__construct', array(
+	/* $dsn * / array(FALSE, FALSE),
+	/* $username * / array(PHP_VERSION_ID >= 50426 && (PHP_VERSION_ID < 50500 || PHP_VERSION_ID > 50509), FALSE),
+	/* $passwd * / array(PHP_VERSION_ID >= 50426 && (PHP_VERSION_ID < 50500 || PHP_VERSION_ID > 50509), FALSE),
+	/* $options * / array(TRUE, FALSE),
+));
+check( 'mysqli::mysqli', array(
+	/* $host * / array(TRUE, FALSE),
+	/* $username * / array(TRUE, FALSE),
+	/* $passwd * / array(TRUE, FALSE),
+	/* $dbname * / array(TRUE, FALSE),
+	/* $port * / array(TRUE, FALSE),
+	/* $socket * / array(TRUE, FALSE),
+));
+*/
