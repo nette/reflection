@@ -37,32 +37,32 @@ class TestClass3
 
 
 $rc = new Reflection\ClassType('TestClass1');
-Assert::equal(array(
-	'description' => array('This is my favorite class.'),
-	'one' => array('value'),
-	'two' => array('value'),
-	'three' => array(TRUE),
-	'five' => array(TRUE),
-	'brackets' => array(
-		Nette\Utils\ArrayHash::from(array(
+Assert::equal([
+	'description' => ['This is my favorite class.'],
+	'one' => ['value'],
+	'two' => ['value'],
+	'three' => [TRUE],
+	'five' => [TRUE],
+	'brackets' => [
+		Nette\Utils\ArrayHash::from([
 			'single' => "()@\\'\"",
 			'double' => "()@'\\\"",
-		)),
-	),
-	'line1' => array(TRUE),
-	'line2' => array(TRUE),
-	'line3' => array('value'),
-	'line4' => array(TRUE),
-), $rc->getAnnotations());
+		]),
+	],
+	'line1' => [TRUE],
+	'line2' => [TRUE],
+	'line3' => ['value'],
+	'line4' => [TRUE],
+], $rc->getAnnotations());
 
 
 $rc = new Reflection\ClassType('TestClass2');
-Assert::same(array(
-	'one' => array('value'),
-), $rc->getAnnotations());
+Assert::same([
+	'one' => ['value'],
+], $rc->getAnnotations());
 
 
 $rc = new Reflection\ClassType('TestClass3');
-Assert::same(array(
-	'one' => array(TRUE),
-), $rc->getAnnotations());
+Assert::same([
+	'one' => [TRUE],
+], $rc->getAnnotations());

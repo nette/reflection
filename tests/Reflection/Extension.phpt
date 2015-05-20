@@ -22,9 +22,9 @@ if (!class_exists('PDO')) {
 
 
 $ext = new Reflection\Extension('pdo');
-Assert::equal(array(
+Assert::equal([
 	'PDOException' => new Reflection\ClassType('PDOException'),
 	'PDO' => new Reflection\ClassType('PDO'),
 	'PDOStatement' => new Reflection\ClassType('PDOStatement'),
 	'PDORow' => new Reflection\ClassType('PDORow'),
-), $ext->getClasses());
+], $ext->getClasses());

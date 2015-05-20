@@ -30,7 +30,7 @@ class AnnotationsParser
 	public static $autoRefresh = TRUE;
 
 	/** @var array */
-	public static $inherited = array('description', 'param', 'return');
+	public static $inherited = ['description', 'param', 'return'];
 
 	/** @var array */
 	private static $cache;
@@ -102,7 +102,7 @@ class AnnotationsParser
 
 			if (self::$cache === NULL) {
 				self::$cache = (array) $outerCache->load('list');
-				self::$timestamps = isset(self::$cache['*']) ? self::$cache['*'] : array();
+				self::$timestamps = isset(self::$cache['*']) ? self::$cache['*'] : [];
 			}
 
 			if (!isset(self::$cache[$type]) && $file) {
@@ -120,7 +120,7 @@ class AnnotationsParser
 			if (isset(self::$cache[$type][$member])) {
 				$annotations = self::$cache[$type][$member];
 			} else {
-				$annotations = array();
+				$annotations = [];
 			}
 		}
 
@@ -133,7 +133,7 @@ class AnnotationsParser
 				try {
 					$inherited = self::getAll($r->getPrototype());
 				} catch (\ReflectionException $e) {
-					$inherited = array();
+					$inherited = [];
 				}
 			}
 			$annotations += array_intersect_key($inherited, array_flip(self::$inherited));
@@ -191,15 +191,15 @@ class AnnotationsParser
 	 */
 	private static function parseComment($comment)
 	{
-		static $tokens = array('true' => TRUE, 'false' => FALSE, 'null' => NULL, '' => TRUE);
+		static $tokens = ['true' => TRUE, 'false' => FALSE, 'null' => NULL, '' => TRUE];
 
-		$res = array();
+		$res = [];
 		$comment = preg_replace('#^\s*\*\s?#ms', '', trim($comment, '/*'));
 		$parts = preg_split('#^\s*(?=@'.self::RE_IDENTIFIER.')#m', $comment, 2);
 
 		$description = trim($parts[0]);
 		if ($description !== '') {
-			$res['description'] = array($description);
+			$res['description'] = [$description];
 		}
 
 		$matches = Strings::matchAll(
@@ -216,7 +216,7 @@ class AnnotationsParser
 			list(, $name, $value) = $match;
 
 			if (substr($value, 0, 1) === '(') {
-				$items = array();
+				$items = [];
 				$key = '';
 				$val = TRUE;
 				$value[0] = ',';
@@ -280,7 +280,7 @@ class AnnotationsParser
 
 		$tokens = @token_get_all($code);
 		$namespace = $class = $classLevel = $level = $docComment = NULL;
-		$res = $uses = array();
+		$res = $uses = [];
 
 		while (list(, $token) = each($tokens)) {
 			switch (is_array($token) ? $token[0] : $token) {
@@ -289,8 +289,8 @@ class AnnotationsParser
 					break;
 
 				case T_NAMESPACE:
-					$namespace = self::fetch($tokens, array(T_STRING, T_NS_SEPARATOR)) . '\\';
-					$uses = array();
+					$namespace = self::fetch($tokens, [T_STRING, T_NS_SEPARATOR]) . '\\';
+					$uses = [];
 					break;
 
 				case T_CLASS:
@@ -325,7 +325,7 @@ class AnnotationsParser
 					break;
 
 				case T_USE:
-					while (!$class && ($name = self::fetch($tokens, array(T_STRING, T_NS_SEPARATOR)))) {
+					while (!$class && ($name = self::fetch($tokens, [T_STRING, T_NS_SEPARATOR]))) {
 						if (self::fetch($tokens, T_AS)) {
 							$uses[self::fetch($tokens, T_STRING)] = ltrim($name, '\\');
 						} else {
@@ -363,10 +363,10 @@ class AnnotationsParser
 	{
 		$res = NULL;
 		while ($token = current($tokens)) {
-			list($token, $s) = is_array($token) ? $token : array($token, $token);
+			list($token, $s) = is_array($token) ? $token : [$token, $token];
 			if (in_array($token, (array) $take, TRUE)) {
 				$res .= $s;
-			} elseif (!in_array($token, array(T_DOC_COMMENT, T_WHITESPACE, T_COMMENT), TRUE)) {
+			} elseif (!in_array($token, [T_DOC_COMMENT, T_WHITESPACE, T_COMMENT], TRUE)) {
 				break;
 			}
 			next($tokens);

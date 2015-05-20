@@ -33,9 +33,9 @@ $rc = Reflection\ClassType::from('Bar');
 Assert::null($rc->getExtension());
 
 
-Assert::equal(array(
+Assert::equal([
 	'Countable' => new Reflection\ClassType('Countable'),
-), $rc->getInterfaces());
+], $rc->getInterfaces());
 
 
 Assert::equal(new Reflection\ClassType('Foo'), $rc->getParentClass());
@@ -51,10 +51,10 @@ Assert::exception(function () use ($rc) {
 	$rc->getMethod('doesntExist');
 }, 'ReflectionException', 'Method Bar::doesntExist() does not exist');
 
-Assert::equal(array(
+Assert::equal([
 	new Reflection\Method('Bar', 'count'),
 	new Reflection\Method('Foo', 'f'),
-), $rc->getMethods());
+], $rc->getMethods());
 
 
 Assert::equal(new Reflection\Property('Bar', 'var'), $rc->getProperty('var'));
@@ -64,6 +64,6 @@ Assert::exception(function () use ($rc) {
 	$rc->getProperty('doesntExist');
 }, 'ReflectionException', 'Property Bar::$doesntExist does not exist');
 
-Assert::equal(array(
+Assert::equal([
 	new Reflection\Property('Bar', 'var'),
-), $rc->getProperties());
+], $rc->getProperties());

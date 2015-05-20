@@ -34,7 +34,7 @@ function boo($a, $b) {
  */
 test(function () {
 	$function = new Reflection\GlobalFunction('sort');
-	Assert::same(array(),  $function->getAnnotations());
+	Assert::same([],  $function->getAnnotations());
 	Assert::null($function->getDescription());
 });
 
@@ -46,7 +46,7 @@ test(function () {
 test(function () {
 	$function = new Reflection\GlobalFunction('foo');
 	$ans = $function->getAnnotations();
-	Assert::same(array('Test: Nette\Reflection\Annotations.GlobalFunction tests.'), $ans['description']);
+	Assert::same(['Test: Nette\Reflection\Annotations.GlobalFunction tests.'], $ans['description']);
 });
 
 
@@ -56,11 +56,11 @@ test(function () {
  */
 test(function () {
 	$function = new Reflection\GlobalFunction('boo');
-	Assert::same(array(
-			'description' => array('Lorem ipsum.'),
-			'param' => array('int', 'int'),
-			'return' => array('int'),
-		),
+	Assert::same([
+			'description' => ['Lorem ipsum.'],
+			'param' => ['int', 'int'],
+			'return' => ['int'],
+		],
 		$function->getAnnotations()
 	);
 	Assert::same('Lorem ipsum.', $function->getDescription());

@@ -28,7 +28,7 @@ class Extension extends \ReflectionExtension
 
 	public function getClasses()
 	{
-		$res = array();
+		$res = [];
 		foreach (parent::getClassNames() as $val) {
 			$res[$val] = new ClassType($val);
 		}

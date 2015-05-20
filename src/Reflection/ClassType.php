@@ -98,7 +98,7 @@ class ClassType extends \ReflectionClass
 	 */
 	public function getInterfaces()
 	{
-		$res = array();
+		$res = [];
 		foreach (parent::getInterfaceNames() as $val) {
 			$res[$val] = new static($val);
 		}

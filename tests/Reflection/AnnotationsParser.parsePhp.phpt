@@ -11,8 +11,8 @@ use Tester\Assert;
 require __DIR__ . '/../bootstrap.php';
 
 
-Assert::same(array(
-	'Test\AnnotatedClass1' => array(
+Assert::same([
+	'Test\AnnotatedClass1' => [
 		'class' => '/** @author john */',
 		'$a' => '/** @var a */',
 		'$b' => '/** @var b */',
@@ -25,13 +25,13 @@ Assert::same(array(
 		'd' => '/** @return d */',
 		'e' => '/** @return e */',
 		'g' => '/** @return g */',
-	),
-	'Test\AnnotatedClass2' => array('class' => '/** @author jack */'),
-), AnnotationsParser::parsePhp(file_get_contents(__DIR__ . '/files/annotations.php')));
+	],
+	'Test\AnnotatedClass2' => ['class' => '/** @author jack */'],
+], AnnotationsParser::parsePhp(file_get_contents(__DIR__ . '/files/annotations.php')));
 
 
-Assert::same(array(
-	'Test\TestClass1' => array('use' => array('C' => 'A\B')),
-	'Test\TestClass2' => array('use' => array('C' => 'A\B', 'D' => 'D', 'E' => 'E', 'H' => 'F\G')),
-	'Test2\TestClass4' => array('use' => array('C' => 'A\B\C')),
-), AnnotationsParser::parsePhp(file_get_contents(__DIR__ . '/files/uses.php')));
+Assert::same([
+	'Test\TestClass1' => ['use' => ['C' => 'A\B']],
+	'Test\TestClass2' => ['use' => ['C' => 'A\B', 'D' => 'D', 'E' => 'E', 'H' => 'F\G']],
+	'Test2\TestClass4' => ['use' => ['C' => 'A\B\C']],
+], AnnotationsParser::parsePhp(file_get_contents(__DIR__ . '/files/uses.php')));

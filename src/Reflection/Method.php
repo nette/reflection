@@ -119,7 +119,7 @@ class Method extends \ReflectionMethod
 	 */
 	public function getParameters()
 	{
-		$me = array(parent::getDeclaringClass()->getName(), $this->getName());
+		$me = [parent::getDeclaringClass()->getName(), $this->getName()];
 		foreach ($res = parent::getParameters() as $key => $val) {
 			$res[$key] = new Parameter($me, $val->getName());
 		}

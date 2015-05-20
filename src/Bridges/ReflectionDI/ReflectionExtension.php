@@ -29,7 +29,7 @@ class ReflectionExtension extends Nette\DI\CompilerExtension
 	{
 		$class->getMethod('initialize')
 			->addBody('Nette\Reflection\AnnotationsParser::setCacheStorage($this->getByType("Nette\Caching\IStorage"));')
-			->addBody('Nette\Reflection\AnnotationsParser::$autoRefresh = ?;', array($this->debugMode));
+			->addBody('Nette\Reflection\AnnotationsParser::$autoRefresh = ?;', [$this->debugMode]);
 	}
 
 }
