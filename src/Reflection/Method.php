@@ -75,14 +75,6 @@ class Method extends \ReflectionMethod
 	}
 
 
-	public function getClosure($object = NULL)
-	{
-		return PHP_VERSION_ID < 50400
-			? Nette\Utils\Callback::closure($object ?: parent::getDeclaringClass()->getName(), $this->getName())
-			: parent::getClosure($object);
-	}
-
-
 	/********************* Reflection layer ****************d*g**/
 
 

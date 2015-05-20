@@ -2,7 +2,6 @@
 
 /**
  * Test: Nette\Reflection\Helpers::getDeclaringClass
- * @phpversion 5.4
  */
 
 use Nette\Reflection\Helpers;

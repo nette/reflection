@@ -163,10 +163,10 @@ class AnnotationsParser
 
 		$filename = $reflector->getFileName();
 		$parsed = static::getCache()->load($filename, function (& $dp) use ($filename) {
-			if (AnnotationsParser::$autoRefresh) {
+			if (self::$autoRefresh) {
 				$dp[Nette\Caching\Cache::FILES] = $filename;
 			}
-			return AnnotationsParser::parsePhp(file_get_contents($filename));
+			return self::parsePhp(file_get_contents($filename));
 		});
 		$uses = array_change_key_case((array) $tmp = & $parsed[$reflector->getName()]['use']);
 		$parts = explode('\\', $name, 2);
@@ -295,7 +295,7 @@ class AnnotationsParser
 
 				case T_CLASS:
 				case T_INTERFACE:
-				case PHP_VERSION_ID < 50400 ? -1 : T_TRAIT:
+				case T_TRAIT:
 					if ($name = self::fetch($tokens, T_STRING)) {
 						$class = $namespace . $name;
 						$classLevel = $level + 1;

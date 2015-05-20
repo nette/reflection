@@ -60,14 +60,6 @@ class GlobalFunction extends \ReflectionFunction
 	}
 
 
-	public function getClosure()
-	{
-		return PHP_VERSION_ID < 50400
-			? Nette\Utils\Callback::closure($this->value)
-			: parent::getClosure();
-	}
-
-
 	/********************* Reflection layer ****************d*g**/
 
 
