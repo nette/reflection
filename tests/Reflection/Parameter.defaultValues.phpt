@@ -16,7 +16,7 @@ function check($name, $args)
 	$method = new Reflection\Method($name);
 	foreach ($method->getParameters() as $param) {
 		echo "$name(\${$param->getName()})\n";
-		list($isOptional, $isDefaultValueAvailable, $defaultValue) = array_shift($args) + array(NULL, NULL, NULL);
+		list($isOptional, $isDefaultValueAvailable, $defaultValue) = array_shift($args) + [NULL, NULL, NULL];
 		Assert::same( $isOptional, $param->isOptional() );
 		Assert::same( $isDefaultValueAvailable, $param->isDefaultValueAvailable() );
 
@@ -39,50 +39,50 @@ class Test
 }
 
 
-check( 'Test::func1', array(
-	/* $a */ array(FALSE, FALSE), // isOptional | isDefaultValueAvailable | [ getDefaultValue ]
-	/* $b */ array(FALSE, FALSE),
-	/* $c */ array(FALSE, FALSE)
-));
-check( 'Test::func2', array(
-	/* $a */ array(FALSE, FALSE),
-	/* $b */ array(FALSE, PHP_VERSION_ID >= 50407 || (PHP_VERSION_ID >= 50317 && PHP_VERSION_ID < 50400)),
-	/* $c */ array(FALSE, FALSE)
-));
-check( 'Test::func3', array(
-	/* $a */ array(FALSE, FALSE),
-	/* $b */ array(TRUE, TRUE, NULL),
-	/* $c */ array(TRUE, TRUE, NULL)
-));
-check( 'Test::func4', array(
-	/* $a */ array(FALSE, FALSE),
-	/* $b */ array(FALSE, PHP_VERSION_ID >= 50407 || (PHP_VERSION_ID >= 50317 && PHP_VERSION_ID < 50400)),
-	/* $c */ array(FALSE, FALSE)
-));
-check( 'Test::func5', array(
-	/* $a */ array(FALSE, FALSE),
-	/* $b */ array(TRUE, TRUE, NULL),
-	/* $c */ array(TRUE, TRUE, NULL)
-));
-check( 'Test::func6', array(
-	/* $a */ array(FALSE, FALSE),
-	/* $b */ array(FALSE, PHP_VERSION_ID >= 50407 || (PHP_VERSION_ID >= 50317 && PHP_VERSION_ID < 50400)),
-	/* $c */ array(FALSE, FALSE)
-));
-check( 'Test::func7', array(
-	/* $a */ array(FALSE, FALSE),
-	/* $b */ array(TRUE, TRUE, NULL),
-	/* $c */ array(TRUE, TRUE, NULL)
-));
-check( 'Exception::__construct', array(
-	/* $message */ array(TRUE, FALSE),
-	/* $code */ array(TRUE, FALSE),
-	/* $previous */ array(TRUE, FALSE),
-));
-check( 'FilesystemIterator::__construct', array(
-	/* $path */ array(FALSE, FALSE),
-	/* $flags */ array(TRUE, FALSE),
-));
+check( 'Test::func1', [
+	/* $a */ [FALSE, FALSE], // isOptional | isDefaultValueAvailable | [ getDefaultValue ]
+	/* $b */ [FALSE, FALSE],
+	/* $c */ [FALSE, FALSE]
+]);
+check( 'Test::func2', [
+	/* $a */ [FALSE, FALSE],
+	/* $b */ [FALSE, PHP_VERSION_ID >= 50407 || (PHP_VERSION_ID >= 50317 && PHP_VERSION_ID < 50400)],
+	/* $c */ [FALSE, FALSE]
+]);
+check( 'Test::func3', [
+	/* $a */ [FALSE, FALSE],
+	/* $b */ [TRUE, TRUE, NULL],
+	/* $c */ [TRUE, TRUE, NULL]
+]);
+check( 'Test::func4', [
+	/* $a */ [FALSE, FALSE],
+	/* $b */ [FALSE, PHP_VERSION_ID >= 50407 || (PHP_VERSION_ID >= 50317 && PHP_VERSION_ID < 50400)],
+	/* $c */ [FALSE, FALSE]
+]);
+check( 'Test::func5', [
+	/* $a */ [FALSE, FALSE],
+	/* $b */ [TRUE, TRUE, NULL],
+	/* $c */ [TRUE, TRUE, NULL]
+]);
+check( 'Test::func6', [
+	/* $a */ [FALSE, FALSE],
+	/* $b */ [FALSE, PHP_VERSION_ID >= 50407 || (PHP_VERSION_ID >= 50317 && PHP_VERSION_ID < 50400)],
+	/* $c */ [FALSE, FALSE]
+]);
+check( 'Test::func7', [
+	/* $a */ [FALSE, FALSE],
+	/* $b */ [TRUE, TRUE, NULL],
+	/* $c */ [TRUE, TRUE, NULL]
+]);
+check( 'Exception::__construct', [
+	/* $message */ [TRUE, FALSE],
+	/* $code */ [TRUE, FALSE],
+	/* $previous */ [TRUE, FALSE],
+]);
+check( 'FilesystemIterator::__construct', [
+	/* $path */ [FALSE, FALSE],
+	/* $flags */ [TRUE, FALSE],
+]);
 /*
 check( 'PDO::__construct', array(
 	/* $dsn * / array(FALSE, FALSE),
