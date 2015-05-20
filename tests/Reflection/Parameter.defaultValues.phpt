@@ -46,7 +46,7 @@ check( 'Test::func1', [
 ]);
 check( 'Test::func2', [
 	/* $a */ [FALSE, FALSE],
-	/* $b */ [FALSE, PHP_VERSION_ID >= 50407 || (PHP_VERSION_ID >= 50317 && PHP_VERSION_ID < 50400)],
+	/* $b */ [FALSE, PHP_VERSION_ID >= 50407],
 	/* $c */ [FALSE, FALSE]
 ]);
 check( 'Test::func3', [
@@ -56,7 +56,7 @@ check( 'Test::func3', [
 ]);
 check( 'Test::func4', [
 	/* $a */ [FALSE, FALSE],
-	/* $b */ [FALSE, PHP_VERSION_ID >= 50407 || (PHP_VERSION_ID >= 50317 && PHP_VERSION_ID < 50400)],
+	/* $b */ [FALSE, PHP_VERSION_ID >= 50407],
 	/* $c */ [FALSE, FALSE]
 ]);
 check( 'Test::func5', [
@@ -66,7 +66,7 @@ check( 'Test::func5', [
 ]);
 check( 'Test::func6', [
 	/* $a */ [FALSE, FALSE],
-	/* $b */ [FALSE, PHP_VERSION_ID >= 50407 || (PHP_VERSION_ID >= 50317 && PHP_VERSION_ID < 50400)],
+	/* $b */ [FALSE, PHP_VERSION_ID >= 50407],
 	/* $c */ [FALSE, FALSE]
 ]);
 check( 'Test::func7', [
@@ -84,18 +84,18 @@ check( 'FilesystemIterator::__construct', [
 	/* $flags */ [TRUE, FALSE],
 ]);
 /*
-check( 'PDO::__construct', array(
+check( 'PDO::__construct', [
 	/* $dsn * / array(FALSE, FALSE),
 	/* $username * / array(PHP_VERSION_ID >= 50426 && (PHP_VERSION_ID < 50500 || PHP_VERSION_ID > 50509), FALSE),
 	/* $passwd * / array(PHP_VERSION_ID >= 50426 && (PHP_VERSION_ID < 50500 || PHP_VERSION_ID > 50509), FALSE),
 	/* $options * / array(TRUE, FALSE),
-));
-check( 'mysqli::mysqli', array(
+]);
+check( 'mysqli::mysqli', [
 	/* $host * / array(TRUE, FALSE),
 	/* $username * / array(TRUE, FALSE),
 	/* $passwd * / array(TRUE, FALSE),
 	/* $dbname * / array(TRUE, FALSE),
 	/* $port * / array(TRUE, FALSE),
 	/* $socket * / array(TRUE, FALSE),
-));
+]);
 */
