@@ -2,7 +2,7 @@ Nette PHP Reflection
 ====================
 
 [![Downloads this Month](https://img.shields.io/packagist/dm/nette/reflection.svg)](https://packagist.org/packages/nette/reflection)
-[![Build Status](https://travis-ci.org/nette/reflection.svg?branch=master)](https://travis-ci.org/nette/reflection)
+[![Build Status](https://travis-ci.org/nette/reflection.svg?branch=v2.3)](https://travis-ci.org/nette/reflection)
 
 If you need to find every information about any class, reflection is the right tool to do it. You can easily find out which methods does any class have, what parameters do those methods accept, etc. `Nette\Object` simplifies access to class' self-reflection with method `getReflection()`, returning a [ClassType | api:Nette\Reflection\ClassType]) object:
 
