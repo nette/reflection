@@ -4,8 +4,8 @@
  * Test: Nette\Reflection\Helpers::getDeclaringClass
  */
 
-use Nette\Reflection\Helpers,
-	Tester\Assert;
+use Nette\Reflection\Helpers;
+use Tester\Assert;
 
 
 require __DIR__ . '/../bootstrap.php';

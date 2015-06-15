@@ -4,8 +4,8 @@
  * Test: Nette\Reflection\Annotations.GlobalFunction tests.
  */
 
-use Nette\Reflection,
-	Tester\Assert;
+use Nette\Reflection;
+use Tester\Assert;
 
 
 require __DIR__ . '/../bootstrap.php';
@@ -32,7 +32,7 @@ function boo($a, $b) {
 /**
  * Build-in function without Doc comments.
  */
-test(function() {
+test(function () {
 	$function = new Reflection\GlobalFunction('sort');
 	Assert::same([],  $function->getAnnotations());
 	Assert::null($function->getDescription());
@@ -43,7 +43,7 @@ test(function() {
 /**
  * Function without Doc comments.
  */
-test(function() {
+test(function () {
 	$function = new Reflection\GlobalFunction('foo');
 	$ans = $function->getAnnotations();
 	Assert::same(['Test: Nette\Reflection\Annotations.GlobalFunction tests.'], $ans['description']);
@@ -54,7 +54,7 @@ test(function() {
 /**
  * Function with any Doc comments.
  */
-test(function() {
+test(function () {
 	$function = new Reflection\GlobalFunction('boo');
 	Assert::same([
 			'description' => ['Lorem ipsum.'],

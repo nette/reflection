@@ -4,14 +4,14 @@
  * Test: Nette\Reflection\AnnotationsParser::parsePhp.
  */
 
-use Nette\Reflection\AnnotationsParser,
-	Tester\Assert;
+use Nette\Reflection\AnnotationsParser;
+use Tester\Assert;
 
 
 require __DIR__ . '/../bootstrap.php';
 
 
-Assert::same( [
+Assert::same([
 	'Test\AnnotatedClass1' => [
 		'class' => '/** @author john */',
 		'$a' => '/** @var a */',
@@ -27,11 +27,11 @@ Assert::same( [
 		'g' => '/** @return g */',
 	],
 	'Test\AnnotatedClass2' => ['class' => '/** @author jack */'],
-], AnnotationsParser::parsePhp(file_get_contents(__DIR__ . '/files/annotations.php')) );
+], AnnotationsParser::parsePhp(file_get_contents(__DIR__ . '/files/annotations.php')));
 
 
-Assert::same( [
+Assert::same([
 	'Test\TestClass1' => ['use' => ['C' => 'A\B']],
 	'Test\TestClass2' => ['use' => ['C' => 'A\B', 'D' => 'D', 'E' => 'E', 'H' => 'F\G']],
 	'Test2\TestClass4' => ['use' => ['C' => 'A\B\C']],
-], AnnotationsParser::parsePhp(file_get_contents(__DIR__ . '/files/uses.php')) );
+], AnnotationsParser::parsePhp(file_get_contents(__DIR__ . '/files/uses.php')));
