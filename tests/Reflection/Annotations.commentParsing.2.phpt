@@ -4,8 +4,8 @@
  * Test: Nette\Reflection\AnnotationsParser comment parser II.
  */
 
-use Nette\Reflection,
-	Tester\Assert;
+use Nette\Reflection;
+use Tester\Assert;
 
 
 require __DIR__ . '/../bootstrap.php';
@@ -21,20 +21,23 @@ require __DIR__ . '/../bootstrap.php';
  * @brackets( single = '()@\'"', double = "()@'\"")
  * @line1() @line2 @line3 value @line4
  */
-class TestClass1 {
+class TestClass1
+{
 }
 
 /** @one(value)*/
-class TestClass2 {
+class TestClass2
+{
 }
 
 /** @one*/
-class TestClass3 {
+class TestClass3
+{
 }
 
 
 $rc = new Reflection\ClassType('TestClass1');
-Assert::equal( array(
+Assert::equal(array(
 	'description' => array('This is my favorite class.'),
 	'one' => array('value'),
 	'two' => array('value'),
@@ -50,16 +53,16 @@ Assert::equal( array(
 	'line2' => array(TRUE),
 	'line3' => array('value'),
 	'line4' => array(TRUE),
-), $rc->getAnnotations() );
+), $rc->getAnnotations());
 
 
 $rc = new Reflection\ClassType('TestClass2');
-Assert::same( array(
+Assert::same(array(
 	'one' => array('value'),
-), $rc->getAnnotations() );
+), $rc->getAnnotations());
 
 
 $rc = new Reflection\ClassType('TestClass3');
-Assert::same( array(
+Assert::same(array(
 	'one' => array(TRUE),
-), $rc->getAnnotations() );
+), $rc->getAnnotations());

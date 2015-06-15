@@ -4,8 +4,8 @@
  * Test: Expanding class alias to FQN.
  */
 
-use Nette\Reflection\AnnotationsParser,
-	Tester\Assert;
+use Nette\Reflection\AnnotationsParser;
+use Tester\Assert;
 
 require __DIR__ . '/../bootstrap.php';
 
@@ -18,15 +18,15 @@ $rcFoo = new \ReflectionClass('Test\Space\Foo');
 $rcBar = new \ReflectionClass('Test\Space\Bar');
 
 
-Assert::exception( function() use ($rcTest) {
+Assert::exception(function () use ($rcTest) {
 	AnnotationsParser::expandClassName('', $rcTest);
-}, 'Nette\InvalidArgumentException', 'Class name must not be empty.' );
+}, 'Nette\InvalidArgumentException', 'Class name must not be empty.');
 
 
-Assert::same( 'A', AnnotationsParser::expandClassName('A', $rcTest) );
-Assert::same( 'A\B', AnnotationsParser::expandClassName('C', $rcTest) );
+Assert::same('A', AnnotationsParser::expandClassName('A', $rcTest));
+Assert::same('A\B', AnnotationsParser::expandClassName('C', $rcTest));
 
-Assert::same( 'Test\Space\Foo', AnnotationsParser::expandClassName('self', $rcFoo) );
+Assert::same('Test\Space\Foo', AnnotationsParser::expandClassName('self', $rcFoo));
 
 
 /*
@@ -38,84 +38,84 @@ alias to expand => array(
 $cases = array(
 	'\Absolute' => array(
 		'Absolute',
-		'Absolute'
+		'Absolute',
 	),
 	'\Absolute\Foo' => array(
 		'Absolute\Foo',
-		'Absolute\Foo'
+		'Absolute\Foo',
 	),
 
 	'AAA' => array(
 		'Test\Space\AAA',
-		'AAA'
+		'AAA',
 	),
 	'AAA\Foo' => array(
 		'Test\Space\AAA\Foo',
-		'AAA\Foo'
+		'AAA\Foo',
 	),
 
 	'B' => array(
 		'Test\Space\B',
-		'BBB'
+		'BBB',
 	),
 	'B\Foo' => array(
 		'Test\Space\B\Foo',
-		'BBB\Foo'
+		'BBB\Foo',
 	),
 
 	'DDD' => array(
 		'Test\Space\DDD',
-		'CCC\DDD'
+		'CCC\DDD',
 	),
 	'DDD\Foo' => array(
 		'Test\Space\DDD\Foo',
-		'CCC\DDD\Foo'
+		'CCC\DDD\Foo',
 	),
 
 	'F' => array(
 		'Test\Space\F',
-		'EEE\FFF'
+		'EEE\FFF',
 	),
 	'F\Foo' => array(
 		'Test\Space\F\Foo',
-		'EEE\FFF\Foo'
+		'EEE\FFF\Foo',
 	),
 
 	'HHH' => array(
 		'Test\Space\HHH',
-		'Test\Space\HHH'
+		'Test\Space\HHH',
 	),
 
 	'Notdef' => array(
 		'Test\Space\Notdef',
-		'Test\Space\Notdef'
+		'Test\Space\Notdef',
 	),
 	'Notdef\Foo' => array(
 		'Test\Space\Notdef\Foo',
-		'Test\Space\Notdef\Foo'
+		'Test\Space\Notdef\Foo',
 	),
 
 	// case insensivity
 	'aAa' => array(
 		'Test\Space\aAa',
-		'AAA'
+		'AAA',
 	),
 	'AaA\Foo' => array(
 		'Test\Space\AaA\Foo',
-		'AAA\Foo'
+		'AAA\Foo',
 	),
 
 	// trim leading backslash
 	'G' => array(
 		'Test\Space\G',
-		'GGG'
+		'GGG',
 	),
 	'G\Foo' => array(
 		'Test\Space\G\Foo',
-		'GGG\Foo'
+		'GGG\Foo',
 	),
 );
 foreach ($cases as $alias => $fqn) {
-	Assert::same( $fqn[0], AnnotationsParser::expandClassName($alias, $rcFoo) );
-	Assert::same( $fqn[1], AnnotationsParser::expandClassName($alias, $rcBar) );
+	Assert::same($fqn[0], AnnotationsParser::expandClassName($alias, $rcFoo));
+	Assert::same($fqn[1], AnnotationsParser::expandClassName($alias, $rcBar));
 }

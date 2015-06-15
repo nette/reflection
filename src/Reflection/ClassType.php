@@ -7,8 +7,8 @@
 
 namespace Nette\Reflection;
 
-use Nette,
-	Nette\Utils\ObjectMixin;
+use Nette;
+use Nette\Utils\ObjectMixin;
 
 
 /**
@@ -50,7 +50,7 @@ class ClassType extends \ReflectionClass
 
 	/**
 	 * @param  string|object
-	 * @return ClassType
+	 * @return self
 	 */
 	public static function from($class)
 	{
@@ -96,7 +96,7 @@ class ClassType extends \ReflectionClass
 
 
 	/**
-	 * @return ClassType[]
+	 * @return self[]
 	 */
 	public function getInterfaces()
 	{
@@ -130,7 +130,7 @@ class ClassType extends \ReflectionClass
 
 
 	/**
-	 * @return ClassType|NULL
+	 * @return self|NULL
 	 */
 	public function getParentClass()
 	{

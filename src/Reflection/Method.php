@@ -7,8 +7,8 @@
 
 namespace Nette\Reflection;
 
-use Nette,
-	Nette\Utils\ObjectMixin;
+use Nette;
+use Nette\Utils\ObjectMixin;
 
 
 /**
@@ -54,7 +54,7 @@ class Method extends \ReflectionMethod
 	/**
 	 * @param  string|object
 	 * @param  string
-	 * @return Method
+	 * @return self
 	 */
 	public static function from($class, $method)
 	{
@@ -103,7 +103,7 @@ class Method extends \ReflectionMethod
 	public function getPrototype()
 	{
 		$prototype = parent::getPrototype();
-		return new Method($prototype->getDeclaringClass()->getName(), $prototype->getName());
+		return new self($prototype->getDeclaringClass()->getName(), $prototype->getName());
 	}
 
 
