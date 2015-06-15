@@ -4,17 +4,17 @@
  * Test: ReflectionExtension.
  */
 
-use Nette\DI,
-	Nette\Bridges\CacheDI\CacheExtension,
-	Nette\Bridges\ReflectionDI\ReflectionExtension,
-	Nette\Reflection\AnnotationsParser,
-	Tester\Assert;
+use Nette\DI;
+use Nette\Bridges\CacheDI\CacheExtension;
+use Nette\Bridges\ReflectionDI\ReflectionExtension;
+use Nette\Reflection\AnnotationsParser;
+use Tester\Assert;
 
 
 require __DIR__ . '/../bootstrap.php';
 
 
-test(function() {
+test(function () {
 	$compiler = new DI\Compiler;
 	$compiler->addExtension('cache', new CacheExtension(__DIR__));
 	$compiler->addExtension('reflection', new ReflectionExtension);
