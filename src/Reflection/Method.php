@@ -96,12 +96,12 @@ class Method extends \ReflectionMethod
 
 
 	/**
-	 * @return Method
+	 * @return self
 	 */
 	public function getPrototype()
 	{
 		$prototype = parent::getPrototype();
-		return new self($prototype->getDeclaringClass()->getName(), $prototype->getName());
+		return new static($prototype->getDeclaringClass()->getName(), $prototype->getName());
 	}
 
 
