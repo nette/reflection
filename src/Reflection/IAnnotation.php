@@ -7,8 +7,6 @@
 
 namespace Nette\Reflection;
 
-use Nette;
-
 
 /**
  * Code annotation.
