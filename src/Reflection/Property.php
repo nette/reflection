@@ -13,8 +13,6 @@ use Nette\Utils\ObjectMixin;
 
 /**
  * Reports information about a classes variable.
- *
- * @author     David Grudl
  * @property-read ClassType $declaringClass
  * @property-read IAnnotation[][] $annotations
  * @property-read string $description

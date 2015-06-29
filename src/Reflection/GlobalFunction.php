@@ -13,8 +13,6 @@ use Nette\Utils\ObjectMixin;
 
 /**
  * Reports information about a function.
- *
- * @author     David Grudl
  * @property-read array $defaultParameters
  * @property-read bool $closure
  * @property-read Extension $extension
