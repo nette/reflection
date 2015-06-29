@@ -12,8 +12,6 @@ use Nette;
 
 /**
  * Extension for Nette DI.
- *
- * @author     David Grudl
  */
 class ReflectionExtension extends Nette\DI\CompilerExtension
 {

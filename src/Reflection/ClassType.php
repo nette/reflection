@@ -13,8 +13,6 @@ use Nette\Utils\ObjectMixin;
 
 /**
  * Reports information about a class.
- *
- * @author     David Grudl
  * @property-read Method $constructor
  * @property-read Extension $extension
  * @property-read ClassType[] $interfaces

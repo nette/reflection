@@ -13,8 +13,6 @@ use Nette\Utils\ObjectMixin;
 
 /**
  * Reports information about a method.
- *
- * @author     David Grudl
  * @property-read array $defaultParameters
  * @property-read ClassType $declaringClass
  * @property-read Method $prototype

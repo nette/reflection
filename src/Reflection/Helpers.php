@@ -10,9 +10,6 @@ namespace Nette\Reflection;
 use Nette;
 
 
-/**
- * @author Jáchym Toušek
- */
 class Helpers
 {
 

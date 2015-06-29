@@ -13,8 +13,6 @@ use Nette\Utils\Strings;
 
 /**
  * Annotations support for PHP.
- *
- * @author     David Grudl
  * @Annotation
  */
 class AnnotationsParser
