@@ -35,7 +35,7 @@ use Nette\Utils\ObjectMixin;
  */
 class GlobalFunction extends \ReflectionFunction
 {
-	/** @var string|Closure */
+	/** @var string|\Closure */
 	private $value;
 
 
