@@ -20,7 +20,7 @@ $rcBar = new \ReflectionClass('Test\Space\Bar');
 
 Assert::exception(function () use ($rcTest) {
 	AnnotationsParser::expandClassName('', $rcTest);
-}, 'Nette\InvalidArgumentException', 'Class name must not be empty.');
+}, Nette\InvalidArgumentException::class, 'Class name must not be empty.');
 
 
 Assert::same('A', AnnotationsParser::expandClassName('A', $rcTest));

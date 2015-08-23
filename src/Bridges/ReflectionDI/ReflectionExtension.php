@@ -28,7 +28,7 @@ class ReflectionExtension extends Nette\DI\CompilerExtension
 	public function afterCompile(Nette\PhpGenerator\ClassType $class)
 	{
 		$class->getMethod('initialize')
-			->addBody('Nette\Reflection\AnnotationsParser::setCacheStorage($this->getByType("Nette\Caching\IStorage"));')
+			->addBody('Nette\Reflection\AnnotationsParser::setCacheStorage($this->getByType(Nette\Caching\IStorage::class));')
 			->addBody('Nette\Reflection\AnnotationsParser::$autoRefresh = ?;', [$this->debugMode]);
 	}
 
