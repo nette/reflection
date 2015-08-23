@@ -26,5 +26,5 @@ test(function () {
 
 	$container = new Container1;
 	$container->initialize();
-	Assert::type('Nette\Caching\Storages\DevNullStorage', AnnotationsParser::getCacheStorage());
+	Assert::type(Nette\Caching\Storages\DevNullStorage::class, AnnotationsParser::getCacheStorage());
 });
