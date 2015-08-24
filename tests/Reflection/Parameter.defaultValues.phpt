@@ -46,7 +46,7 @@ check('Test::func1', [
 ]);
 check('Test::func2', [
 	/* $a */ [FALSE, FALSE],
-	/* $b */ [FALSE, PHP_VERSION_ID >= 50407],
+	/* $b */ [FALSE, TRUE],
 	/* $c */ [FALSE, FALSE],
 ]);
 check('Test::func3', [
@@ -56,7 +56,7 @@ check('Test::func3', [
 ]);
 check('Test::func4', [
 	/* $a */ [FALSE, FALSE],
-	/* $b */ [FALSE, PHP_VERSION_ID >= 50407],
+	/* $b */ [FALSE, TRUE],
 	/* $c */ [FALSE, FALSE],
 ]);
 check('Test::func5', [
@@ -66,7 +66,7 @@ check('Test::func5', [
 ]);
 check('Test::func6', [
 	/* $a */ [FALSE, FALSE],
-	/* $b */ [FALSE, PHP_VERSION_ID >= 50407],
+	/* $b */ [FALSE, TRUE],
 	/* $c */ [FALSE, FALSE],
 ]);
 check('Test::func7', [
@@ -86,8 +86,8 @@ check('FilesystemIterator::__construct', [
 /*
 check('PDO::__construct', [
 	/* $dsn * / [FALSE, FALSE],
-	/* $username * / [PHP_VERSION_ID >= 50426 && (PHP_VERSION_ID < 50500 || PHP_VERSION_ID > 50509), FALSE],
-	/* $passwd * / [PHP_VERSION_ID >= 50426 && (PHP_VERSION_ID < 50500 || PHP_VERSION_ID > 50509), FALSE],
+	/* $username * / [TRUE, FALSE],
+	/* $passwd * / [TRUE, FALSE],
 	/* $options * / [TRUE, FALSE],
 ]);
 check('mysqli::mysqli', [
