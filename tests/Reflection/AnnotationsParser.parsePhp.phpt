@@ -27,11 +27,13 @@ Assert::same(array(
 		'g' => '/** @return g */',
 	),
 	'Test\AnnotatedClass2' => array('class' => '/** @author jack */'),
+	'Test\AnnotatedClass3' => array(),
 ), AnnotationsParser::parsePhp(file_get_contents(__DIR__ . '/files/annotations.php')));
 
 
 Assert::same(array(
 	'Test\TestClass1' => array('use' => array('C' => 'A\B')),
 	'Test\TestClass2' => array('use' => array('C' => 'A\B', 'D' => 'D', 'E' => 'E', 'H' => 'F\G')),
+	'Test2\TestClass3' => array(),
 	'Test2\TestClass4' => array('use' => array('C' => 'A\B\C')),
 ), AnnotationsParser::parsePhp(file_get_contents(__DIR__ . '/files/uses.php')));
