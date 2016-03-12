@@ -299,6 +299,7 @@ class AnnotationsParser
 					if ($name = self::fetch($tokens, T_STRING)) {
 						$class = $namespace . $name;
 						$classLevel = $level + 1;
+						$res[$class] = [];
 						if ($docComment) {
 							$res[$class]['class'] = $docComment;
 						}
