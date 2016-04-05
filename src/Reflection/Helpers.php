@@ -7,9 +7,12 @@
 
 namespace Nette\Reflection;
 
+use Nette;
+
 
 class Helpers
 {
+	use Nette\StaticClass;
 
 	/**
 	 * Returns declaring class or trait.

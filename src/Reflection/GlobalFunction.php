@@ -8,7 +8,6 @@
 namespace Nette\Reflection;
 
 use Nette;
-use Nette\Utils\ObjectMixin;
 
 
 /**
@@ -35,6 +34,8 @@ use Nette\Utils\ObjectMixin;
  */
 class GlobalFunction extends \ReflectionFunction
 {
+	use Nette\SmartObject;
+
 	/** @var string|\Closure */
 	private $value;
 
@@ -128,39 +129,6 @@ class GlobalFunction extends \ReflectionFunction
 	public function getDescription()
 	{
 		return $this->getAnnotation('description');
-	}
-
-
-	/********************* Nette\Object behaviour ****************d*g**/
-
-
-	public function __call($name, $args)
-	{
-		return ObjectMixin::call($this, $name, $args);
-	}
-
-
-	public function &__get($name)
-	{
-		return ObjectMixin::get($this, $name);
-	}
-
-
-	public function __set($name, $value)
-	{
-		ObjectMixin::set($this, $name, $value);
-	}
-
-
-	public function __isset($name)
-	{
-		return ObjectMixin::has($this, $name);
-	}
-
-
-	public function __unset($name)
-	{
-		ObjectMixin::remove($this, $name);
 	}
 
 }

@@ -17,6 +17,8 @@ use Nette\Utils\Strings;
  */
 class AnnotationsParser
 {
+	use Nette\StaticClass;
+
 	/** @internal single & double quoted PHP string */
 	const RE_STRING = '\'(?:\\\\.|[^\'\\\\])*\'|"(?:\\\\.|[^"\\\\])*"';
 
@@ -40,15 +42,6 @@ class AnnotationsParser
 
 	/** @var Nette\Caching\IStorage */
 	private static $cacheStorage;
-
-
-	/**
-	 * Static class - cannot be instantiated.
-	 */
-	final public function __construct()
-	{
-		throw new Nette\StaticClassException;
-	}
 
 
 	/**
