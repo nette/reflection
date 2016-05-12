@@ -67,7 +67,7 @@ class ClassType extends \ReflectionClass
 	 */
 	public function is($type)
 	{
-		return $this->isSubclassOf($type) || strcasecmp($this->getName(), ltrim($type, '\\')) === 0;
+		return is_a($this->getName(), $type, TRUE);
 	}
 
 
