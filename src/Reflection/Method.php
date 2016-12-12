@@ -52,7 +52,7 @@ class Method extends \ReflectionMethod
 	/**
 	 * @param  string|object
 	 * @param  string
-	 * @return self
+	 * @return static
 	 */
 	public static function from($class, $method)
 	{
@@ -96,7 +96,7 @@ class Method extends \ReflectionMethod
 
 
 	/**
-	 * @return self
+	 * @return static
 	 */
 	public function getPrototype()
 	{
