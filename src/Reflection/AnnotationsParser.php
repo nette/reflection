@@ -320,8 +320,23 @@ class AnnotationsParser
 
 				case T_USE:
 					while (!$class && ($name = self::fetch($tokens, [T_STRING, T_NS_SEPARATOR]))) {
-						if (self::fetch($tokens, T_AS)) {
-							$uses[self::fetch($tokens, T_STRING)] = ltrim($name, '\\');
+						$name = ltrim($name, '\\');
+						if (self::fetch($tokens, '{')) {
+							while ($suffix = self::fetch($tokens, [T_STRING, T_NS_SEPARATOR])) {
+								if (self::fetch($tokens, T_AS)) {
+									$uses[self::fetch($tokens, T_STRING)] = $name . $suffix;
+								} else {
+									$tmp = explode('\\', $suffix);
+									$uses[end($tmp)] = $name . $suffix;
+								}
+								if (!self::fetch($tokens, ',')) {
+									break;
+								}
+							}
+
+						} elseif (self::fetch($tokens, T_AS)) {
+							$uses[self::fetch($tokens, T_STRING)] = $name;
+
 						} else {
 							$tmp = explode('\\', $name);
 							$uses[end($tmp)] = $name;
