@@ -282,7 +282,7 @@ class AnnotationsParser
 					break;
 
 				case T_NAMESPACE:
-					$namespace = self::fetch($tokens, [T_STRING, T_NS_SEPARATOR]) . '\\';
+					$namespace = ltrim(self::fetch($tokens, [T_STRING, T_NS_SEPARATOR]) . '\\', '\\');
 					$uses = [];
 					break;
 
