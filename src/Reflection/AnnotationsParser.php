@@ -72,6 +72,10 @@ class AnnotationsParser
 			$file = $r->getDeclaringClass()->getFileName();
 		}
 
+		if (self::$useReflection === NULL) { // detects whether is reflection available
+			self::$useReflection = (bool) ClassType::from(__CLASS__)->getDocComment();
+		}
+
 		if (!self::$useReflection) { // auto-expire cache
 			if ($file && isset(self::$timestamps[$file]) && self::$timestamps[$file] !== filemtime($file)) {
 				unset(self::$cache[$type]);
@@ -81,10 +85,6 @@ class AnnotationsParser
 
 		if (isset(self::$cache[$type][$member])) { // is value cached?
 			return self::$cache[$type][$member];
-		}
-
-		if (self::$useReflection === NULL) { // detects whether is reflection available
-			self::$useReflection = (bool) ClassType::from(__CLASS__)->getDocComment();
 		}
 
 		if (self::$useReflection) {
