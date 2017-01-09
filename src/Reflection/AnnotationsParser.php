@@ -155,13 +155,13 @@ class AnnotationsParser
 		}
 
 		$filename = $reflector->getFileName();
-		$parsed = static::getCache()->load($filename, function (& $dp) use ($filename) {
+		$parsed = static::getCache()->load($filename, function (&$dp) use ($filename) {
 			if (self::$autoRefresh) {
 				$dp[Nette\Caching\Cache::FILES] = $filename;
 			}
 			return self::parsePhp(file_get_contents($filename));
 		});
-		$uses = array_change_key_case((array) $tmp = & $parsed[$reflector->getName()]['use']);
+		$uses = array_change_key_case((array) $tmp = &$parsed[$reflector->getName()]['use']);
 		$parts = explode('\\', $name, 2);
 		$parts[0] = strtolower($parts[0]);
 		if (isset($uses[$parts[0]])) {
@@ -368,7 +368,7 @@ class AnnotationsParser
 	}
 
 
-	private static function fetch(& $tokens, $take)
+	private static function fetch(&$tokens, $take)
 	{
 		$res = NULL;
 		while ($token = current($tokens)) {

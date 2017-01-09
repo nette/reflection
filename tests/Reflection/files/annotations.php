@@ -52,7 +52,7 @@ class AnnotatedClass1
 	{}
 
 	/** @return g */
-	function & g()
+	function &g()
 	{}
 
 
