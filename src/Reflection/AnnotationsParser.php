@@ -275,7 +275,8 @@ class AnnotationsParser
 		$namespace = $class = $classLevel = $level = $docComment = NULL;
 		$res = $uses = [];
 
-		while (list(, $token) = each($tokens)) {
+		while ($token = current($tokens)) {
+			next($tokens);
 			switch (is_array($token) ? $token[0] : $token) {
 				case T_DOC_COMMENT:
 					$docComment = $token[1];
