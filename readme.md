@@ -49,7 +49,7 @@ class FooClass
 In the code there are these annotations:
 
 - `@author John Doe` - string, contains text value `'John Doe'`
-- `@Persistent` - boolean, its presence means `TRUE`
+- `@Persistent` - boolean, its presence means `true`
 - `@User(loggedIn, role=Admin)` - contains associative `array('loggedIn', 'role' => 'Admin')`
 
 
@@ -58,8 +58,8 @@ The existence of a class annotation can be checked via `hasAnnotation()` method:
 
 ```php
 $fooReflection = new Nette\Reflection\ClassType('FooClass');
-$fooReflection->hasAnnotation('author'); // returns TRUE
-$fooReflection->hasAnnotation('copyright'); // returns FALSE
+$fooReflection->hasAnnotation('author'); // returns true
+$fooReflection->hasAnnotation('copyright'); // returns false
 ```
 
 Values can be acquired with `getAnnotation()`:
@@ -83,7 +83,7 @@ array(3) {
 		1 => string(11) "Tomas Marny"
 	}
 	"secured" => array(1) {
-		0 => bool(TRUE)
+		0 => bool(true)
 	}
 }
 ```

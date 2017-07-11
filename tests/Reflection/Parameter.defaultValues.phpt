@@ -16,7 +16,7 @@ function check($name, $args)
 	$method = new Reflection\Method($name);
 	foreach ($method->getParameters() as $param) {
 		echo "$name(\${$param->getName()})\n";
-		list($isOptional, $isDefaultValueAvailable, $defaultValue) = array_shift($args) + [NULL, NULL, NULL];
+		list($isOptional, $isDefaultValueAvailable, $defaultValue) = array_shift($args) + [null, null, null];
 		Assert::same($isOptional, $param->isOptional());
 		Assert::same($isDefaultValueAvailable, $param->isDefaultValueAvailable());
 
@@ -32,84 +32,84 @@ class Test
 	function func1($a, $b, $c)
 	{
 	}
-	function func2($a, $b = NULL, $c)
+	function func2($a, $b = null, $c)
 	{
 	}
-	function func3($a, $b = NULL, $c = NULL)
+	function func3($a, $b = null, $c = null)
 	{
 	}
-	function func4($a, array $b = NULL, array $c)
+	function func4($a, array $b = null, array $c)
 	{
 	}
-	function func5($a, $b = NULL, array $c = NULL)
+	function func5($a, $b = null, array $c = null)
 	{
 	}
-	function func6($a, Exception $b = NULL, Exception $c)
+	function func6($a, Exception $b = null, Exception $c)
 	{
 	}
-	function func7($a, $b = NULL, Exception $c = NULL)
+	function func7($a, $b = null, Exception $c = null)
 	{
 	}
 }
 
 
 check('Test::func1', [
-	/* $a */ [FALSE, FALSE], // isOptional | isDefaultValueAvailable | [ getDefaultValue ]
-	/* $b */ [FALSE, FALSE],
-	/* $c */ [FALSE, FALSE],
+	/* $a */ [false, false], // isOptional | isDefaultValueAvailable | [ getDefaultValue ]
+	/* $b */ [false, false],
+	/* $c */ [false, false],
 ]);
 check('Test::func2', [
-	/* $a */ [FALSE, FALSE],
-	/* $b */ [FALSE, TRUE],
-	/* $c */ [FALSE, FALSE],
+	/* $a */ [false, false],
+	/* $b */ [false, true],
+	/* $c */ [false, false],
 ]);
 check('Test::func3', [
-	/* $a */ [FALSE, FALSE],
-	/* $b */ [TRUE, TRUE, NULL],
-	/* $c */ [TRUE, TRUE, NULL],
+	/* $a */ [false, false],
+	/* $b */ [true, true, null],
+	/* $c */ [true, true, null],
 ]);
 check('Test::func4', [
-	/* $a */ [FALSE, FALSE],
-	/* $b */ [FALSE, TRUE],
-	/* $c */ [FALSE, FALSE],
+	/* $a */ [false, false],
+	/* $b */ [false, true],
+	/* $c */ [false, false],
 ]);
 check('Test::func5', [
-	/* $a */ [FALSE, FALSE],
-	/* $b */ [TRUE, TRUE, NULL],
-	/* $c */ [TRUE, TRUE, NULL],
+	/* $a */ [false, false],
+	/* $b */ [true, true, null],
+	/* $c */ [true, true, null],
 ]);
 check('Test::func6', [
-	/* $a */ [FALSE, FALSE],
-	/* $b */ [FALSE, TRUE],
-	/* $c */ [FALSE, FALSE],
+	/* $a */ [false, false],
+	/* $b */ [false, true],
+	/* $c */ [false, false],
 ]);
 check('Test::func7', [
-	/* $a */ [FALSE, FALSE],
-	/* $b */ [TRUE, TRUE, NULL],
-	/* $c */ [TRUE, TRUE, NULL],
+	/* $a */ [false, false],
+	/* $b */ [true, true, null],
+	/* $c */ [true, true, null],
 ]);
 check('Exception::__construct', [
-	/* $message */ [TRUE, FALSE],
-	/* $code */ [TRUE, FALSE],
-	/* $previous */ [TRUE, FALSE],
+	/* $message */ [true, false],
+	/* $code */ [true, false],
+	/* $previous */ [true, false],
 ]);
 check('FilesystemIterator::__construct', [
-	/* $path */ [FALSE, FALSE],
-	/* $flags */ [TRUE, FALSE],
+	/* $path */ [false, false],
+	/* $flags */ [true, false],
 ]);
 /*
 check('PDO::__construct', [
-	/* $dsn * / [FALSE, FALSE],
-	/* $username * / [TRUE, FALSE],
-	/* $passwd * / [TRUE, FALSE],
-	/* $options * / [TRUE, FALSE],
+	/* $dsn * / [false, false],
+	/* $username * / [true, false],
+	/* $passwd * / [true, false],
+	/* $options * / [true, false],
 ]);
 check('mysqli::mysqli', [
-	/* $host * / [TRUE, FALSE],
-	/* $username * / [TRUE, FALSE],
-	/* $passwd * / [TRUE, FALSE],
-	/* $dbname * / [TRUE, FALSE],
-	/* $port * / [TRUE, FALSE],
-	/* $socket * / [TRUE, FALSE],
+	/* $host * / [true, false],
+	/* $username * / [true, false],
+	/* $passwd * / [true, false],
+	/* $dbname * / [true, false],
+	/* $port * / [true, false],
+	/* $socket * / [true, false],
 ]);
 */

@@ -33,7 +33,7 @@ Assert::equal(new Reflection\ClassType('A'), $method->getDeclaringClass());
 
 Assert::null($method->getExtension());
 
-Assert::same(23, $method->getClosure(NULL)->__invoke(20, 3));
+Assert::same(23, $method->getClosure(null)->__invoke(20, 3));
 
 
 $method = new Reflection\Method($b, 'bar');

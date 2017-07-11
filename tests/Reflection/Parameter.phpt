@@ -12,7 +12,7 @@ require __DIR__ . '/../bootstrap.php';
 
 
 test(function () {
-	function myFunction($test, $test2 = NULL)
+	function myFunction($test, $test2 = null)
 	{
 		echo $test;
 	}
@@ -32,7 +32,7 @@ test(function () {
 test(function () {
 	class Foo
 	{
-		function myMethod($test, $test2 = NULL)
+		function myMethod($test, $test2 = null)
 		{
 			echo $test;
 		}

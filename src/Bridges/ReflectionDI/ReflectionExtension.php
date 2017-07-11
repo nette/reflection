@@ -19,7 +19,7 @@ class ReflectionExtension extends Nette\DI\CompilerExtension
 	private $debugMode;
 
 
-	public function __construct($debugMode = FALSE)
+	public function __construct($debugMode = false)
 	{
 		$this->debugMode = $debugMode;
 	}

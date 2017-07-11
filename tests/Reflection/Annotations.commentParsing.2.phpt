@@ -41,18 +41,18 @@ Assert::equal([
 	'description' => ['This is my favorite class.'],
 	'one' => ['value'],
 	'two' => ['value'],
-	'three' => [TRUE],
-	'five' => [TRUE],
+	'three' => [true],
+	'five' => [true],
 	'brackets' => [
 		Nette\Utils\ArrayHash::from([
 			'single' => "()@\\'\"",
 			'double' => "()@'\\\"",
 		]),
 	],
-	'line1' => [TRUE],
-	'line2' => [TRUE],
+	'line1' => [true],
+	'line2' => [true],
 	'line3' => ['value'],
-	'line4' => [TRUE],
+	'line4' => [true],
 ], $rc->getAnnotations());
 
 
@@ -64,5 +64,5 @@ Assert::same([
 
 $rc = new Reflection\ClassType('TestClass3');
 Assert::same([
-	'one' => [TRUE],
+	'one' => [true],
 ], $rc->getAnnotations());

@@ -71,7 +71,7 @@ class Property extends \ReflectionProperty
 	public function getAnnotation($name)
 	{
 		$res = AnnotationsParser::getAll($this);
-		return isset($res[$name]) ? end($res[$name]) : NULL;
+		return isset($res[$name]) ? end($res[$name]) : null;
 	}
 
 
