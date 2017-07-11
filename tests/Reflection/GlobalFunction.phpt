@@ -11,7 +11,8 @@ use Tester\Assert;
 require __DIR__ . '/../bootstrap.php';
 
 
-function foo($a, $b) {
+function foo($a, $b)
+{
 	return $a + $b;
 }
 

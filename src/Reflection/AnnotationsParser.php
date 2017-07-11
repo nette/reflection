@@ -416,5 +416,4 @@ class AnnotationsParser
 	{
 		return new Nette\Caching\Cache(static::getCacheStorage(), 'Nette.Reflection.Annotations');
 	}
-
 }

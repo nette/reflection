@@ -34,8 +34,8 @@ class TestClass
 
 	/** @RolesAllowed('admin', web editor) */
 	public function foo()
-	{}
-
+	{
+	}
 }
 
 

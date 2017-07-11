@@ -93,5 +93,4 @@ class Property extends \ReflectionProperty
 	{
 		return $this->getAnnotation('description');
 	}
-
 }

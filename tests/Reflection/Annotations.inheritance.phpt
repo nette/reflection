@@ -27,26 +27,40 @@ interface IA
 class A implements IA
 {
 	/** @inheritdoc */
-	function __construct() {}
+	function __construct()
+	{
+	}
 
 	/** @inheritdoc */
-	function foo() {}
+	function foo()
+	{
+	}
 
 	/** This is A */
-	private function bar() {}
+	private function bar()
+	{
+	}
 
 	/** @inheritdoc */
-	function foobar() {}
+	function foobar()
+	{
+	}
 }
 
 class B extends A
 {
-	function __construct() {}
+	function __construct()
+	{
+	}
 
 	/** This is B */
-	function foo() {}
+	function foo()
+	{
+	}
 
-	private function bar() {}
+	private function bar()
+	{
+	}
 }
 
 

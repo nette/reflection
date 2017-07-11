@@ -13,14 +13,18 @@ require __DIR__ . '/../bootstrap.php';
 
 class Foo
 {
-	public function f() {}
+	public function f()
+	{
+	}
 }
 
 class Bar extends Foo implements Countable
 {
 	public $var;
 
-	function count() {}
+	function count()
+	{
+	}
 }
 
 

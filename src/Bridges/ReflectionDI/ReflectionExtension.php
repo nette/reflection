@@ -31,5 +31,4 @@ class ReflectionExtension extends Nette\DI\CompilerExtension
 			->addBody('Nette\Reflection\AnnotationsParser::setCacheStorage($this->getByType(Nette\Caching\IStorage::class));')
 			->addBody('Nette\Reflection\AnnotationsParser::$autoRefresh = ?;', [$this->debugMode]);
 	}
-
 }

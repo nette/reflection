@@ -87,5 +87,4 @@ class Parameter extends \ReflectionParameter
 	{
 		return '$' . parent::getName() . ' in ' . $this->getDeclaringFunction();
 	}
-
 }

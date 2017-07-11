@@ -164,5 +164,4 @@ class Method extends \ReflectionMethod
 	{
 		return $this->getAnnotation('description');
 	}
-
 }

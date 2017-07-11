@@ -11,7 +11,8 @@ use Tester\Assert;
 require __DIR__ . '/../bootstrap.php';
 
 
-function foo($a, $b) {
+function foo($a, $b)
+{
 	return $a + $b;
 }
 
@@ -23,7 +24,8 @@ function foo($a, $b) {
  * @param int
  * @return int
  */
-function boo($a, $b) {
+function boo($a, $b)
+{
 	return $a + $b;
 }
 

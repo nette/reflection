@@ -4,8 +4,8 @@
  * Test: ReflectionExtension.
  */
 
-use Nette\DI;
 use Nette\Bridges\ReflectionDI\ReflectionExtension;
+use Nette\DI;
 use Nette\Reflection\AnnotationsParser;
 use Tester\Assert;
 

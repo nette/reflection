@@ -130,5 +130,4 @@ class GlobalFunction extends \ReflectionFunction
 	{
 		return $this->getAnnotation('description');
 	}
-
 }

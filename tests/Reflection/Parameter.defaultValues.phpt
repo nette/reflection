@@ -29,13 +29,27 @@ function check($name, $args)
 
 class Test
 {
-	function func1($a, $b, $c) {}
-	function func2($a, $b = NULL, $c) {}
-	function func3($a, $b = NULL, $c = NULL) {}
-	function func4($a, array $b = NULL, array $c) {}
-	function func5($a, $b = NULL, array $c = NULL) {}
-	function func6($a, Exception $b = NULL, Exception $c) {}
-	function func7($a, $b = NULL, Exception $c = NULL) {}
+	function func1($a, $b, $c)
+	{
+	}
+	function func2($a, $b = NULL, $c)
+	{
+	}
+	function func3($a, $b = NULL, $c = NULL)
+	{
+	}
+	function func4($a, array $b = NULL, array $c)
+	{
+	}
+	function func5($a, $b = NULL, array $c = NULL)
+	{
+	}
+	function func6($a, Exception $b = NULL, Exception $c)
+	{
+	}
+	function func7($a, $b = NULL, Exception $c = NULL)
+	{
+	}
 }
 
 

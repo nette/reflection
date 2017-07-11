@@ -23,8 +23,8 @@ class TestClass
 
 	/** @AJAX */
 	public function foo()
-	{}
-
+	{
+	}
 }
 
 

@@ -201,5 +201,4 @@ class ClassType extends \ReflectionClass
 	{
 		return $this->getAnnotation('description');
 	}
-
 }
