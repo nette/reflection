@@ -34,11 +34,11 @@ test(function () use ($rc) { // Class annotations
 
 	$tmp = $rc->getAnnotations();
 
-	Assert::same('John Doe',  $tmp['author'][0]);
+	Assert::same('John Doe', $tmp['author'][0]);
 	Assert::true($tmp['renderable'][0]);
 
 	Assert::true($rc->hasAnnotation('author'), "has('author')');
-	Assert::same('John Doe",  $rc->getAnnotation('author'));
+	Assert::same('John Doe", $rc->getAnnotation('author'));
 });
 
 

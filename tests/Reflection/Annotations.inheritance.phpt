@@ -14,25 +14,25 @@ require __DIR__ . '/../bootstrap.php';
 interface IA
 {
 	/** This is IA */
-	function __construct();
+	public function __construct();
 
 	/**
 	 * This is IA
 	 * @return mixed
 	 * @author John
 	 */
-	function foo();
+	public function foo();
 }
 
 class A implements IA
 {
 	/** @inheritdoc */
-	function __construct()
+	public function __construct()
 	{
 	}
 
 	/** @inheritdoc */
-	function foo()
+	public function foo()
 	{
 	}
 
@@ -42,19 +42,19 @@ class A implements IA
 	}
 
 	/** @inheritdoc */
-	function foobar()
+	public function foobar()
 	{
 	}
 }
 
 class B extends A
 {
-	function __construct()
+	public function __construct()
 	{
 	}
 
 	/** This is B */
-	function foo()
+	public function foo()
 	{
 	}
 

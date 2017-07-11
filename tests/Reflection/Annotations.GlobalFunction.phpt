@@ -36,7 +36,7 @@ function boo($a, $b)
  */
 test(function () {
 	$function = new Reflection\GlobalFunction('sort');
-	Assert::same([],  $function->getAnnotations());
+	Assert::same([], $function->getAnnotations());
 	Assert::null($function->getDescription());
 });
 

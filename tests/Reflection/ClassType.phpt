@@ -22,7 +22,7 @@ class Bar extends Foo implements Countable
 {
 	public $var;
 
-	function count()
+	public function count()
 	{
 	}
 }

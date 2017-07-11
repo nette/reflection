@@ -29,25 +29,25 @@ function check($name, $args)
 
 class Test
 {
-	function func1($a, $b, $c)
+	public function func1($a, $b, $c)
 	{
 	}
-	function func2($a, $b = null, $c)
+	public function func2($a, $b = null, $c)
 	{
 	}
-	function func3($a, $b = null, $c = null)
+	public function func3($a, $b = null, $c = null)
 	{
 	}
-	function func4($a, array $b = null, array $c)
+	public function func4($a, array $b = null, array $c)
 	{
 	}
-	function func5($a, $b = null, array $c = null)
+	public function func5($a, $b = null, array $c = null)
 	{
 	}
-	function func6($a, Exception $b = null, Exception $c)
+	public function func6($a, Exception $b = null, Exception $c)
 	{
 	}
-	function func7($a, $b = null, Exception $c = null)
+	public function func7($a, $b = null, Exception $c = null)
 	{
 	}
 }

@@ -45,14 +45,14 @@ test(function () use ($rc) { // Class annotations
 
 	$tmp = $rc->getAnnotations();
 
-	Assert::same('This is my favorite class.',  $tmp['description'][0]);
-	Assert::same("Johno's addendum",  $tmp['title'][0]->value);
+	Assert::same('This is my favorite class.', $tmp['description'][0]);
+	Assert::same("Johno's addendum", $tmp['title'][0]->value);
 	Assert::true($tmp['title'][0]->mode);
-	Assert::same('One, Two',  $tmp['title'][1]->value);
-	Assert::same('true or false',  $tmp['title'][1]->mode);
-	Assert::same('Three (Four)',  $tmp['title'][2]->value);
-	Assert::same('false',  $tmp['title'][2]->mode);
-	Assert::same('item 1',  $tmp['components'][0]);
+	Assert::same('One, Two', $tmp['title'][1]->value);
+	Assert::same('true or false', $tmp['title'][1]->mode);
+	Assert::same('Three (Four)', $tmp['title'][2]->value);
+	Assert::same('false', $tmp['title'][2]->mode);
+	Assert::same('item 1', $tmp['components'][0]);
 	Assert::true($tmp['persistent'][0]);
 	Assert::false($tmp['persistent'][1]);
 	Assert::null($tmp['persistent'][2]);
@@ -60,15 +60,15 @@ test(function () use ($rc) { // Class annotations
 	Assert::false($tmp['author'][1]);
 	Assert::null($tmp['author'][2]);
 	Assert::true($tmp['author'][3]);
-	Assert::same('John Doe',  $tmp['author'][4]);
+	Assert::same('John Doe', $tmp['author'][4]);
 	Assert::true($tmp['renderable'][0]);
 
 	Assert::same($tmp, $rc->getAnnotations());
 	Assert::notSame($tmp, Reflection\ClassType::from('ReflectionClass')->getAnnotations());
 
 	Assert::true($rc->hasAnnotation('title'), "has('title')');
-	Assert::same('Three (Four)",  $rc->getAnnotation('title')->value);
-	Assert::same('false',  $rc->getAnnotation('title')->mode);
+	Assert::same('Three (Four)", $rc->getAnnotation('title')->value);
+	Assert::same('false', $rc->getAnnotation('title')->mode);
 
 	$tmp = $rc->getAnnotations('title');
 	/*
@@ -104,8 +104,8 @@ test(function () use ($rc) { // Method annotations
 	$rm = $rc->getMethod('foo');
 	$tmp = $rm->getAnnotations();
 
-	Assert::same('admin',  $tmp['RolesAllowed'][0][0]);
-	Assert::same('web editor',  $tmp['RolesAllowed'][0][1]);
+	Assert::same('admin', $tmp['RolesAllowed'][0][0]);
+	Assert::same('web editor', $tmp['RolesAllowed'][0][1]);
 });
 
 
@@ -114,6 +114,6 @@ test(function () use ($rc) { // Property annotations
 	$rp = $rc->getProperty('foo');
 	$tmp = $rp->getAnnotations();
 
-	Assert::same('admin',  $tmp['secured'][0]->role);
-	Assert::same(2,  $tmp['secured'][0]->level);
+	Assert::same('admin', $tmp['secured'][0]->role);
+	Assert::same(2, $tmp['secured'][0]->level);
 });

@@ -32,7 +32,7 @@ test(function () {
 test(function () {
 	class Foo
 	{
-		function myMethod($test, $test2 = null)
+		public function myMethod($test, $test2 = null)
 		{
 			echo $test;
 		}

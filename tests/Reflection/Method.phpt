@@ -13,7 +13,7 @@ require __DIR__ . '/../bootstrap.php';
 
 class A
 {
-	static function foo($a, $b)
+	public static function foo($a, $b)
 	{
 		return $a + $b;
 	}
@@ -21,7 +21,7 @@ class A
 
 class B extends A
 {
-	function bar($a, $b)
+	public function bar($a, $b)
 	{
 		return $a - $b;
 	}

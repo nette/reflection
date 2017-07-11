@@ -188,7 +188,7 @@ class AnnotationsParser
 
 		$res = [];
 		$comment = preg_replace('#^\s*\*\s?#ms', '', trim($comment, '/*'));
-		$parts = preg_split('#^\s*(?=@'.self::RE_IDENTIFIER.')#m', $comment, 2);
+		$parts = preg_split('#^\s*(?=@' . self::RE_IDENTIFIER . ')#m', $comment, 2);
 
 		$description = trim($parts[0]);
 		if ($description !== '') {
@@ -198,9 +198,9 @@ class AnnotationsParser
 		$matches = Strings::matchAll(
 			isset($parts[1]) ? $parts[1] : '',
 			'~
-				(?<=\s|^)@('.self::RE_IDENTIFIER.')[ \t]*      ##  annotation
+				(?<=\s|^)@(' . self::RE_IDENTIFIER . ')[ \t]*      ##  annotation
 				(
-					\((?>'.self::RE_STRING.'|[^\'")@]+)+\)|  ##  (value)
+					\((?>' . self::RE_STRING . '|[^\'")@]+)+\)|  ##  (value)
 					[^(@\r\n][^@\r\n]*|)                     ##  value
 			~xi'
 		);
@@ -267,7 +267,7 @@ class AnnotationsParser
 	 */
 	public static function parsePhp($code)
 	{
-		if (Strings::match($code, '#//nette'.'loader=(\S*)#')) {
+		if (Strings::match($code, '#//nette' . 'loader=(\S*)#')) {
 			return;
 		}
 
