@@ -15,6 +15,8 @@ composer require nette/reflection
 
 The last stable release requires PHP version 5.6 or newer (is compatible with PHP 7.0 and 7.1).
 
+If you like Nette, **[please make a donation now](https://nette.org/donate)**. Thank you!
+
 If you need to find every information about any class, reflection is the right tool to do it. You can easily find out which methods does any class have, what parameters do those methods accept, etc.
 
 ```php
