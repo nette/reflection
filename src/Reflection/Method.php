@@ -137,7 +137,7 @@ class Method extends \ReflectionMethod
 	/**
 	 * Returns an annotation value.
 	 * @param  string
-	 * @return IAnnotation
+	 * @return IAnnotation|null
 	 */
 	public function getAnnotation($name)
 	{
