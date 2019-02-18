@@ -174,7 +174,7 @@ class ClassType extends \ReflectionClass
 	/**
 	 * Returns an annotation value.
 	 * @param  string
-	 * @return IAnnotation
+	 * @return IAnnotation|null
 	 */
 	public function getAnnotation($name)
 	{
